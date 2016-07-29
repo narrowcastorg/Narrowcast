@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D55EC3E6-7D77-468F-AEA0-7F331AA7B780}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Narrowcast</RootNamespace>
+    <AssemblyName>Narrowcast</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ncIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DnDns\DnsHelpers.cs" />
+    <Compile Include="DnDns\Enums\NsClass.cs" />
+    <Compile Include="DnDns\Enums\NsFlags.cs" />
+    <Compile Include="DnDns\Enums\NsType.cs" />
+    <Compile Include="DnDns\Enums\TcpServices.cs" />
+    <Compile Include="DnDns\Enums\UdpServices.cs" />
+    <Compile Include="NarrowcastCrypt.cs" />
+    <Compile Include="NarrowcastDns.cs" />
+    <Compile Include="NarrowcastFormJoin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NarrowcastFormJoin.Designer.cs">
+      <DependentUpon>NarrowcastFormJoin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NarrowcastMonitor.cs" />
+    <Compile Include="NarrowcastNative.cs" />
+    <Compile Include="NarrowcastWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NarrowcastWindow.Designer.cs">
+      <DependentUpon>NarrowcastWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NarrowcastFormWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NarrowcastFormWindow.Designer.cs">
+      <DependentUpon>NarrowcastFormWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DnDns\Query\DnsQueryBase.cs" />
+    <Compile Include="DnDns\Query\DnsQueryRequest.cs" />
+    <Compile Include="DnDns\Query\DnsQueryResponse.cs" />
+    <Compile Include="DnDns\Records\AaaaRecord.cs" />
+    <Compile Include="DnDns\Records\AfsdbRecord.cs" />
+    <Compile Include="DnDns\Records\ARecord.cs" />
+    <Compile Include="DnDns\Records\AtmaRecord.cs" />
+    <Compile Include="DnDns\Records\BaseDnsRecord.cs" />
+    <Compile Include="DnDns\Records\CNameRecord.cs" />
+    <Compile Include="DnDns\Records\HInfoRecord.cs" />
+    <Compile Include="DnDns\Records\IDnsRecord.cs" />
+    <Compile Include="DnDns\Records\IsdnRecord.cs" />
+    <Compile Include="DnDns\Records\LocRecord.cs" />
+    <Compile Include="DnDns\Records\MbRecord.cs" />
+    <Compile Include="DnDns\Records\MgRecord.cs" />
+    <Compile Include="DnDns\Records\MInfoRecord.cs" />
+    <Compile Include="DnDns\Records\MrRecord.cs" />
+    <Compile Include="DnDns\Records\MxRecord.cs" />
+    <Compile Include="DnDns\Records\NsRecord.cs" />
+    <Compile Include="DnDns\Records\PtrRecord.cs" />
+    <Compile Include="DnDns\Records\RecordFactory.cs" />
+    <Compile Include="DnDns\Records\RecordHeader.cs" />
+    <Compile Include="DnDns\Records\RpRecord.cs" />
+    <Compile Include="DnDns\Records\RtRecord.cs" />
+    <Compile Include="DnDns\Records\SoaRecord.cs" />
+    <Compile Include="DnDns\Records\SrvRecord.cs" />
+    <Compile Include="DnDns\Records\TSigRecord.cs" />
+    <Compile Include="DnDns\Records\TxtRecord.cs" />
+    <Compile Include="DnDns\Records\UnknownRecord.cs" />
+    <Compile Include="DnDns\Records\WksRecord.cs" />
+    <Compile Include="DnDns\Records\X25Record.cs" />
+    <Compile Include="DnDns\Security\IMessageSecurityProvider.cs" />
+    <Compile Include="DnDns\Security\TsigMessageSecurityProvider.cs" />
+    <Compile Include="DnDns\Tools.cs" />
+    <EmbeddedResource Include="NarrowcastFormJoin.resx">
+      <DependentUpon>NarrowcastFormJoin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NarrowcastWindow.resx">
+      <DependentUpon>NarrowcastWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NarrowcastFormWindow.resx">
+      <DependentUpon>NarrowcastFormWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ncWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ncNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ncIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
